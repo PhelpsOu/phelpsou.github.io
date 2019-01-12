@@ -149,21 +149,6 @@
 			</div>
 		
 	
-		
-			
-		
-		
-			<div class="nav-item">
-				
-					<div class="nav-name">
-				
-					<a class="nav-link" href="/categories/Others/">
-						<span>Others </span>
-					</a>
-				</div>
-			</div>
-		
-	
 	
 	<div class="nav-item" id="nav-item-toc">
 		
@@ -212,8 +197,6 @@
 			
 				
 			
-				
-			
 		
 			<div class="nav-more-item">
 					<div class="nav-name">
@@ -229,28 +212,12 @@
 				
 			
 				
-			
-				
 					
 				
 			
 		
 		
 			
-			
-				
-					
-				
-			
-				
-			
-				
-			
-		
-		
-			
-			
-				
 			
 				
 					
@@ -265,14 +232,6 @@
 				<div class="nav-name">
 					<a class="nav-link" href="/categories/TechReport/">
 						<span>Techreport</span>
-					</a>
-				</div>
-		</div>
-		
-		<div class="nav-more-item">
-				<div class="nav-name">
-					<a class="nav-link" href="/categories/Others/">
-						<span>Others</span>
 					</a>
 				</div>
 		</div>
@@ -607,7 +566,6 @@
 <p>作为信电学院电科的学子，了解一下NCS的硬件配置和体系架构还是很有必要的，可以增长见识、将计组课上学到的知识学以致用一下，同时还能加深对NCS的理解。</p>
 <p><br><img src="https://movidius.github.io/ncsdk/images/NCS1_ArchDiagram.jpg"></p>
 <p>上图左方为应用处理器，如<code>Raspberry Pi 3B</code>和<code>UP square borad</code>等；右方即<code>Neural Compute Stick</code>的硬件结构概览。NCS中内置了一颗<strong>Myriad 2 Vision Processor</strong>，Myriad 2拥有12个<code>串流混合架构向量引擎（SHAVE）</code>，该引擎结合了RISC、DSP、GPU以及超长指令字元（VLIW）架构的最佳特色，可以同时处理整数和浮点数；在VPU的旁边有一颗<code>Leon</code>处理器，负责从USB接收计算图文件(graph file)和用于推理的图片集，并解析计算图文件，为SHAVE引擎分配计算任务；计算图通过 <code>NCAPI</code>传输到NCS中，并存储在VPU旁的DRAM上。</p>
-<br>
 <p>NCS的核心是这颗Myriad 2 VPU，它是2014年由Movidius发布的一款SoC，广受好评的大疆精灵4无人机搭载的视觉处理芯片就是它。Myriad 2拥有两个32位RISC处理器，一个用于执行实时操作系统（RTOS），另一个则用于执行实时应用程序；12个基于低延迟内存结构的可编程引擎SHAVE从根本上消除了耗时耗电的数据串流任务，只占用了约500mW晶片功耗。</p>
 <p>此外，Movidius还为经常使用的视觉任务增加了20个硬件加速器——称为<code>原子成像视觉引擎</code>。同时，在这块SoC上有12个移动产业处理器界面（MIPI）通道与其配套的周边界面，包括以太网、USB、IIC、SPI、LCD和UART等，如下图所示。</p>
 <img src="https://archive.eettaiwan.com/www.eettaiwan.com/STATIC/ARTICLE_IMAGES/201409/20140903_Movidius_NP31P4.jpg">
@@ -756,11 +714,6 @@ NCS的官方博客，里面文章数量很少，但是质量都很不错，可�
 		
 		
 	
-		
-			
-		
-		
-	
 	
 	<div class="nav-item" id="nav-item-toc">
 		
@@ -809,8 +762,6 @@ NCS的官方博客，里面文章数量很少，但是质量都很不错，可�
 			
 				
 			
-				
-			
 		
 			<div class="nav-more-item">
 					<div class="nav-name">
@@ -826,28 +777,12 @@ NCS的官方博客，里面文章数量很少，但是质量都很不错，可�
 				
 			
 				
-			
-				
 					
 				
 			
 		
 		
 			
-			
-				
-					
-				
-			
-				
-			
-				
-			
-		
-		
-			
-			
-				
 			
 				
 					
@@ -862,14 +797,6 @@ NCS的官方博客，里面文章数量很少，但是质量都很不错，可�
 				<div class="nav-name">
 					<a class="nav-link" href="/categories/TechReport/">
 						<span>Techreport</span>
-					</a>
-				</div>
-		</div>
-		
-		<div class="nav-more-item">
-				<div class="nav-name">
-					<a class="nav-link" href="/categories/Others/">
-						<span>Others</span>
 					</a>
 				</div>
 		</div>
@@ -943,7 +870,7 @@ NCS的官方博客，里面文章数量很少，但是质量都很不错，可�
   loadjs(['/libs/jshashes/hashes.min.js', '/libs/js-cookie/src/js.cookie.js', '/js/post.v2.js'], 'post-version');
   loadjs.ready('post-version', function(){
     
-    new Postv2('hashit_ea720ca15e0d09d58c75d2e1f3ed4c1b9ed0c4897b0d81547248e206a7fe3276').update('hashit_c7531088bebec1a5336ce2b79cad8f8239ae2c26b831e5e6f866ac7902ebc8c8', function(){});
+    new Postv2('hashit_ea720ca15e0d09d58c75d2e1f3ed4c1b9ed0c4897b0d81547248e206a7fe3276').update('hashit_f644dbaa3464dfbdea05fcc204262837040bcdaa71047f379adb0e8519be53b4', function(){});
   });
   
 </script>

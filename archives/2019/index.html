@@ -149,21 +149,6 @@
 			</div>
 		
 	
-		
-			
-		
-		
-			<div class="nav-item">
-				
-					<div class="nav-name">
-				
-					<a class="nav-link" href="/categories/Others/">
-						<span>Others </span>
-					</a>
-				</div>
-			</div>
-		
-	
 	
 	<div class="nav-item" id="nav-item-archive">
 		
@@ -198,8 +183,6 @@
 			
 				
 			
-				
-			
 		
 			<div class="nav-more-item">
 					<div class="nav-name">
@@ -215,28 +198,12 @@
 				
 			
 				
-			
-				
 					
 				
 			
 		
 		
 			
-			
-				
-					
-				
-			
-				
-			
-				
-			
-		
-		
-			
-			
-				
 			
 				
 					
@@ -251,14 +218,6 @@
 				<div class="nav-name">
 					<a class="nav-link" href="/categories/TechReport/">
 						<span>Techreport</span>
-					</a>
-				</div>
-		</div>
-		
-		<div class="nav-more-item">
-				<div class="nav-name">
-					<a class="nav-link" href="/categories/Others/">
-						<span>Others</span>
 					</a>
 				</div>
 		</div>
@@ -424,46 +383,6 @@
 
 
 
-<div class="Card-archive" id="hashit_72d3078e0104bb40c444536fca75dd8c9ce844fc012acca5bf245ca5a8765c02" data-name="test" data-version="">
-	<mark class="Card-badge"></mark>
-	<div class="Card-body">
-		<h3 class="Card-title">
-			
-				<a href="/2019/01/12/test/">
-			
-			Test</a>
-		</h3>
-		<div class="Card-meta">
-			<div class="Card-tags"></div>
-			<ul>
-					<li>
-						<a href="/archives/">
-							<i class="fa fa-calendar"></i> Jan 12, 2019
-						</a>
-					</li>
-					
-					
-					<li>
-						<a href="/2019/01/12/test/#article-comment">
-							<i class="fa fa-comments"></i> <span class="card-comment-count">0</span>
-						</a>
-					</li>
-					<li>
-						<i class="fa fa-eye"></i> <span class="card-visit-count">0</span>
-					</li>
-					
-					
-			</ul>
-		</div>
-	</div>
-</div>
-
-	
-		
-
-
-
-
 <div class="Card-archive" id="hashit_60703579258c600fca1c6885941eda37fbf3b90f57334aa18d0d6b107caea6ce" data-name="Hello World" data-version="">
 	<mark class="Card-badge"></mark>
 	<div class="Card-body">
@@ -568,11 +487,6 @@
 		
 		
 	
-		
-			
-		
-		
-	
 	
 	<div class="nav-item" id="nav-item-archive">
 		
@@ -607,8 +521,6 @@
 			
 				
 			
-				
-			
 		
 			<div class="nav-more-item">
 					<div class="nav-name">
@@ -624,28 +536,12 @@
 				
 			
 				
-			
-				
 					
 				
 			
 		
 		
 			
-			
-				
-					
-				
-			
-				
-			
-				
-			
-		
-		
-			
-			
-				
 			
 				
 					
@@ -660,14 +556,6 @@
 				<div class="nav-name">
 					<a class="nav-link" href="/categories/TechReport/">
 						<span>Techreport</span>
-					</a>
-				</div>
-		</div>
-		
-		<div class="nav-more-item">
-				<div class="nav-name">
-					<a class="nav-link" href="/categories/Others/">
-						<span>Others</span>
 					</a>
 				</div>
 		</div>
@@ -761,14 +649,6 @@
           
           
           
-            var postBadge = document.querySelector('#hashit_72d3078e0104bb40c444536fca75dd8c9ce844fc012acca5bf245ca5a8765c02 mark.Card-badge');
-            $(postBadge).fadeOut();
-            
-          
-        
-          
-          
-          
             var postBadge = document.querySelector('#hashit_60703579258c600fca1c6885941eda37fbf3b90f57334aa18d0d6b107caea6ce mark.Card-badge');
             $(postBadge).fadeOut();
             
@@ -841,36 +721,6 @@
           });
           leanCloud.isThumbUp('/2019/01/12/人间词话/', function(isThumbUp){
               var el = document.querySelector('#hashit_8db4de875dab3b3444a057f32d2e6507c115acb07cde0cc24dab4043aa408a26 .card-thumbup-container i');
-              if(el){
-                if(isThumbUp){
-                  el.className = 'fas fa-thumbs-up';
-                }else{
-                  el.className = 'far fa-thumbs-up';
-                }
-              }
-          });
-        
-          
-          
-          // start caching post visit and comment counts
-          leanCloud.fetchIsThumbUp('/2019/01/12/test/', json.ip);
-          leanCloud.fetchCommentCount('/2019/01/12/test/');
-          leanCloud.fetchVisitCount('/2019/01/12/test/');
-          leanCloud.fetchThumbUpCount('/2019/01/12/test/');
-          leanCloud.getCommentCount('/2019/01/12/test/', function(count){
-              var el = document.querySelector('#hashit_72d3078e0104bb40c444536fca75dd8c9ce844fc012acca5bf245ca5a8765c02 .card-comment-count');
-              if(el) el.innerHTML = count;
-          });
-          leanCloud.getVisitCount('/2019/01/12/test/', function(count){
-              var el = document.querySelector('#hashit_72d3078e0104bb40c444536fca75dd8c9ce844fc012acca5bf245ca5a8765c02 .card-visit-count');
-              if(el) el.innerHTML = count;
-          });
-          leanCloud.getThumbUpCount('/2019/01/12/test/', function(count){
-              var el = document.querySelector('#hashit_72d3078e0104bb40c444536fca75dd8c9ce844fc012acca5bf245ca5a8765c02 .card-thumbup-count');
-              if(el) el.innerHTML = count;
-          });
-          leanCloud.isThumbUp('/2019/01/12/test/', function(isThumbUp){
-              var el = document.querySelector('#hashit_72d3078e0104bb40c444536fca75dd8c9ce844fc012acca5bf245ca5a8765c02 .card-thumbup-container i');
               if(el){
                 if(isThumbUp){
                   el.className = 'fas fa-thumbs-up';
