@@ -127,8 +127,8 @@
 				
 					<div class="nav-name">
 				
-					<a class="nav-link" href="tags">
-						<span>Tags </span>
+					<a class="nav-link" href="/categories/BookReading/">
+						<span>BookReading </span>
 					</a>
 				</div>
 			</div>
@@ -142,8 +142,23 @@
 				
 					<div class="nav-name">
 				
-					<a class="nav-link" href="categories">
-						<span>Categories </span>
+					<a class="nav-link" href="/categories/TechReport/">
+						<span>TechReport </span>
+					</a>
+				</div>
+			</div>
+		
+	
+		
+			
+		
+		
+			<div class="nav-item">
+				
+					<div class="nav-name">
+				
+					<a class="nav-link" href="/categories/Others/">
+						<span>Others </span>
 					</a>
 				</div>
 			</div>
@@ -183,6 +198,8 @@
 			
 				
 			
+				
+			
 		
 			<div class="nav-more-item">
 					<div class="nav-name">
@@ -199,14 +216,22 @@
 			
 				
 			
+				
+					
+				
+			
 		
-			<div class="nav-more-item">
-					<div class="nav-name">
-						<a class="nav-link" href="tags">
-							<span>Tags</span>
-						</a>
-					</div>
-			</div>
+		
+			
+			
+				
+					
+				
+			
+				
+			
+				
+			
 		
 		
 			
@@ -214,30 +239,34 @@
 				
 			
 				
+					
+				
 			
-		
-			<div class="nav-more-item">
-					<div class="nav-name">
-						<a class="nav-link" href="categories">
-							<span>Categories</span>
-						</a>
-					</div>
-			</div>
+				
+			
 		
 		
 		
 		<div class="nav-more-item">
 				<div class="nav-name">
-					<a class="nav-link" href="/categories/Tutorials/">
-						<span>Tutorials</span>
+					<a class="nav-link" href="/categories/TechReport/">
+						<span>Techreport</span>
 					</a>
 				</div>
 		</div>
 		
 		<div class="nav-more-item">
 				<div class="nav-name">
-					<a class="nav-link" href="/categories/others/">
+					<a class="nav-link" href="/categories/Others/">
 						<span>Others</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/BookReading/">
+						<span>Bookreading</span>
 					</a>
 				</div>
 		</div>
@@ -267,9 +296,11 @@
 
 	<ul class="cat-list">
 		
-			<li><a href="/categories/Tutorials/"><img src="/images/Tutorials.svg" alt="Tutorials" onerror="if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"" title="Tutorials"></a></li>
+			<li><a href="/categories/TechReport/"><img src="/images/TechReport.svg" alt="TechReport" onerror="if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"" title="TechReport"></a></li>
 		
-			<li><a href="/categories/others/"><img src="/images/others.svg" alt="others" onerror="if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"" title="others"></a></li>
+			<li><a href="/categories/Others/"><img src="/images/Others.svg" alt="Others" onerror="if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"" title="Others"></a></li>
+		
+			<li><a href="/categories/BookReading/"><img src="/images/BookReading.svg" alt="BookReading" onerror="if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"" title="BookReading"></a></li>
 		
 	</ul>
 
@@ -306,7 +337,7 @@
 			"tags"
 		]
 	};
-	var s = '[{"title":"Hello World","date":"2019-01-12T00:51:41.182Z","content":"Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.\nQuick Start\nCreate a new post\n1$ hexo new My New Post\nMore info: Writing\nRun server\n1$ hexo server\nMore info: Server\nGenerate static files\n1$ hexo generate\nMore info: Generating\nDeploy to remote sites\n1$ hexo deploy\nMore info: Deployment\n","tags":["hexo"],"path":"2019/01/12/hello-world/","external_link":""},{"title":"test","date":"2019-01-12T02:31:25.000Z","content":"怎么回事？\n这个也太难了吧\n为什么会这样\n","tags":[],"path":"2019/01/12/test/","external_link":""}]';
+	var s = '[{"title":"Hello World","date":"2019-01-12T00:51:41.182Z","content":"Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.\nQuick Start\nCreate a new post\n1$ hexo new My New Post\nMore info: Writing\nRun server\n1$ hexo server\nMore info: Server\nGenerate static files\n1$ hexo generate\nMore info: Generating\nDeploy to remote sites\n1$ hexo deploy\nMore info: Deployment\n","tags":["hexo"],"path":"2019/01/12/hello-world/","external_link":""},{"title":"test","date":"2019-01-12T02:31:25.000Z","content":"怎么回事？\n这个也太难了吧\n为什么会这样\n","tags":[],"path":"2019/01/12/test/","external_link":""},{"title":"人间词话","date":"2019-01-12T11:56:15.000Z","content":"","tags":["人间词话","诗词"],"path":"2019/01/12/人间词话/","external_link":""}]';
 
 	s = s.replace(/\\n/g, "\\n")
                .replace(/\\'/g, "\\'")
@@ -347,7 +378,7 @@
 
 <div class="tagcloud-container">
 <div class="tag-cloud">
-	<a href="/tags/hexo/" style="font-size: 0.8em; color: #488baf">hexo</a>
+	<a href="/tags/hexo/" style="font-size: 0.8em; color: #488baf">hexo</a> <a href="/tags/人间词话/" style="font-size: 0.8em; color: #488baf">人间词话</a> <a href="/tags/诗词/" style="font-size: 0.8em; color: #488baf">诗词</a>
 </div>
 </div>
 
@@ -405,6 +436,11 @@
 		
 		
 	
+		
+			
+		
+		
+	
 	
 	<div class="nav-item" id="nav-item-archive">
 		
@@ -439,6 +475,8 @@
 			
 				
 			
+				
+			
 		
 			<div class="nav-more-item">
 					<div class="nav-name">
@@ -455,14 +493,22 @@
 			
 				
 			
+				
+					
+				
+			
 		
-			<div class="nav-more-item">
-					<div class="nav-name">
-						<a class="nav-link" href="tags">
-							<span>Tags</span>
-						</a>
-					</div>
-			</div>
+		
+			
+			
+				
+					
+				
+			
+				
+			
+				
+			
 		
 		
 			
@@ -470,30 +516,34 @@
 				
 			
 				
+					
+				
 			
-		
-			<div class="nav-more-item">
-					<div class="nav-name">
-						<a class="nav-link" href="categories">
-							<span>Categories</span>
-						</a>
-					</div>
-			</div>
+				
+			
 		
 		
 		
 		<div class="nav-more-item">
 				<div class="nav-name">
-					<a class="nav-link" href="/categories/Tutorials/">
-						<span>Tutorials</span>
+					<a class="nav-link" href="/categories/TechReport/">
+						<span>Techreport</span>
 					</a>
 				</div>
 		</div>
 		
 		<div class="nav-more-item">
 				<div class="nav-name">
-					<a class="nav-link" href="/categories/others/">
+					<a class="nav-link" href="/categories/Others/">
 						<span>Others</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/BookReading/">
+						<span>Bookreading</span>
 					</a>
 				</div>
 		</div>
