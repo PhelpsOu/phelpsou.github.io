@@ -10,7 +10,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
   
-      <title>Search - Phelps Ou's</title>
+      <title>杂谈 - Tag - Phelps Ou's</title>
   
 
   
@@ -116,7 +116,7 @@
 	</div>
 	<div class="nav-item" id="nav-item-search">
 		
-		<div class="nav-icon active_dot">
+		<div class="nav-icon">
 		
 			<a href="/search/" title="Search">
 			<img src="/images/icons/blue-shadow/search.svg" alt="">
@@ -148,96 +148,78 @@
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div style="flex: 1;">
-      <style>
-    body {
-        background-color: white;
-    }
-</style>
-<div class="search-container">
-	<input type="text" id="search-form">
+      <div class="archive-container">
 
-	<ul class="cat-list">
-		
-	</ul>
 
+	
+		<h2 class="archive-title">#   杂谈</h2>
+	
 	<div class="archive-cards">
-			<div class="Card-archive" style="display:none">
-				<div class="Card-body">
-					<h3 class="Card-title">
-						<a>
+	
+		
+
+
+
+
+<div class="Card-archive" id="hashit_72d3078e0104bb40c444536fca75dd8c9ce844fc012acca5bf245ca5a8765c02" data-name="test" data-version="">
+	<mark class="Card-badge"></mark>
+	<div class="Card-body">
+		<h3 class="Card-title">
+			
+				<a href="/2019/01/12/test/">
+			
+			Test</a>
+		</h3>
+		<div class="Card-meta">
+			<div class="Card-tags">
+<div class="tags">
+	
+		
+			
+				<label class="tag-1"><a href="/tags/杂谈/">杂谈</a></label>
+			
+		
+	
+	</div>
+</div>
+			<ul>
+					<li>
+						<a href="/archives/">
+							<i class="fa fa-calendar"></i> Jan 12, 2019
 						</a>
-					</h3>
-					<div class="Card-meta">
-						<ul>
-							<li><i class="fa fa-calendar"></i> <span class="Card-date"></span></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+					</li>
+					
+					
+					
+			</ul>
 		</div>
+	</div>
 </div>
 
-<script src="/libs/fuse.js/dist/fuse.min.js"></script>
-<script>
-	var options = {
-		shouldSort: true,
-		threshold: 0.4,
-		tokenize: true,
-		location: 0,
-		distance: 100,
-		maxPatternLength: 32,
-		minMatchCharLength: 2,
-		keys: [
-			"title",
-			"author",
-			"tags"
-		]
-	};
-	var s = '[{"title":"Hello World","date":"2019-01-12T00:51:41.182Z","content":"Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.\nQuick Start\nCreate a new post\n1$ hexo new My New Post\nMore info: Writing\nRun server\n1$ hexo server\nMore info: Server\nGenerate static files\n1$ hexo generate\nMore info: Generating\nDeploy to remote sites\n1$ hexo deploy\nMore info: Deployment\n","tags":[],"path":"2019/01/12/hello-world/","external_link":""},{"title":"test","date":"2019-01-12T02:31:25.000Z","content":"怎么回事？\n这个也太难了吧\n","tags":["杂谈"],"path":"2019/01/12/test/","external_link":""}]';
+	
+	</div>
 
-	s = s.replace(/\\n/g, "\\n")
-               .replace(/\\'/g, "\\'")
-               .replace(/\\"/g, '\\"')
-               .replace(/\\&/g, "\\&")
-               .replace(/\\r/g, "\\r")
-               .replace(/\\t/g, "\\t")
-               .replace(/\\b/g, "\\b")
-               .replace(/\\f/g, "\\f")
 
-// remove non-printable and other non-valid JSON chars
-	s = s.replace(/[\u0000-\u0019]+/g,"");
-	var list = JSON.parse(s);
-	var fuse = new Fuse(list, options);
-	var el = document.getElementById('search-form');
-	var newBox = $('.Card-archive').first().clone();
-	el.oninput = function(event){
-		var searchText = el.value;
-		var result = fuse.search(searchText);
-		$('.archive-cards .Card-archive').remove();
-		for(var i in result){
-			var anotherBox = newBox.clone();
-			var dateStr = new Date(result[i].date);
-			anotherBox.css('display','flex');
-			var url = "";
-			if(result[i].external_link !== ""){
-				url = result[i].external_link;
-			}else{
-				url = '/' + result[i].path;
-			}
 
-			anotherBox.find('.Card-title a').text(result[i].title).attr('href', url);
-			anotherBox.find('.Card-date').text(dateStr.toDateString());
-			anotherBox.appendTo('.archive-cards');
-		}
-	}
-</script>
-
-<div class="tagcloud-container">
-<div class="tag-cloud">
-	<a href="/tags/杂谈/" style="font-size: 0.8em; color: #488baf">杂谈</a>
+<div class="pagination">
+	
+	
+	
+	
+		
+		
+		<div class="pagination-item">
+			
+			
+				<span>1</span>
+			
+		</div>
+		
+		
+	
+	
 </div>
 </div>
-
   </div>
 
   
@@ -277,7 +259,7 @@
 	</div>
 	<div class="nav-item" id="nav-item-search">
 		
-		<div class="nav-icon active_dot">
+		<div class="nav-icon">
 		
 			<a href="/search/" title="Search">
 			<img src="/images/icons/blue-shadow/search.svg" alt="">
@@ -334,6 +316,22 @@
 <script type="text/javascript">
 
   
+    loadjs(['/libs/jshashes/hashes.min.js', '/libs/js-cookie/src/js.cookie.js', '/js/post.v2.js'], 'post-version');
+    loadjs.ready('post-version', {
+      success: function(){
+        console.log('ready to run badge script')
+        
+          
+          
+          
+            var postBadge = document.querySelector('#hashit_72d3078e0104bb40c444536fca75dd8c9ce844fc012acca5bf245ca5a8765c02 mark.Card-badge');
+            $(postBadge).fadeOut();
+            
+          
+        
+      }
+    })
+  
 </script>
 
 
@@ -348,6 +346,20 @@ initHeadroom();
 
 changeLayoutOnTouchScreen();
 
+// 
+// var post = new Post('', '');
+// $('.Card-archive').each(function(){
+//     var post_url = $(this).attr('id');
+//     var true_url = $(this).find('.Card-title a').first().attr('href');
+//     var card = this;
+//     post.getCommentCount(post_url, function(count){
+//         $(card).find('.card-comment-count').first().text(count);
+//     });
+//     post.getVisitCount(post_url, function(count){
+//         $(card).find('.card-visit-count').first().text(count);
+//     });
+    
+// });
 // 
 </script>
 
