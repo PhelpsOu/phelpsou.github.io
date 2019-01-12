@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  
+      <title>Movidius神经计算棒使用报告 - Phelps Ou's</title>
+  
+
+  
+  
+  <meta name="description" content="Welcome to my website!">
+  <meta name="author" content="Phelps Ou">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- load loadjs.js -->
+  <script src="/libs/loadjs/dist/loadjs.min.js"></script>
+
+<link rel="stylesheet" href="/libs/animate.css/animate.min.css">
+  <!-- load lightgallery -->
+<link rel="stylesheet" href="/css/lightgallery.css">
+<link rel="stylesheet" href="/libs/noty/lib/noty.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+    <link rel="stylesheet" href="/css/taurus.css">
+    
+        <link rel="stylesheet" href="/css/scheme-taurus/animations.css">
+    
+
+
+<link rel="stylesheet" href="/.css">
+
+  <!-- load font awesome 5 -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+  </script>
+  <!-- load mathjax -->
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax//libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  <!-- load js-cookie -->
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="/js/social-share.min.js"></script>
+    <script src="/js/theme.js"></script>
+
+  <!-- include cookie.js -->
+  
+  
+
+  <!-- include comment system code -->
+  
+    <script src="//cdn1.lncld.net/static/js/3.6.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+
+ 
+
+<header id="header" class="header">
+	<div class="header-title">
+		
+		<div class="header-logo">
+			<a href="/">
+				<img src="/images/Babe.jpeg">
+			</a>
+		</div>
+		<div class="header-text">
+			<h1>
+				<a href="/">Phelps Ou's</a>
+			</h1>
+			<subtitle>
+				A personal blog for Ou Yuefeng
+			</subtitle>
+		</div>
+		
+	</div>
+	<div id="header-nav">
+		
+
+
+
+<nav id="nav">
+	
+	
+		
+			
+		
+		
+			<div class="nav-item">
+				
+					<div class="nav-name active_page">
+				
+					<a class="nav-link" href="/">
+						<span>Home </span>
+					</a>
+				</div>
+			</div>
+		
+	
+		
+			
+		
+		
+			<div class="nav-item">
+				
+					<div class="nav-name">
+				
+					<a class="nav-link" href="/categories/BookReading/">
+						<span>BookReading </span>
+					</a>
+				</div>
+			</div>
+		
+	
+		
+			
+		
+		
+			<div class="nav-item">
+				
+					<div class="nav-name">
+				
+					<a class="nav-link" href="/categories/TechReport/">
+						<span>TechReport </span>
+					</a>
+				</div>
+			</div>
+		
+	
+		
+			
+		
+		
+			<div class="nav-item">
+				
+					<div class="nav-name">
+				
+					<a class="nav-link" href="/categories/Others/">
+						<span>Others </span>
+					</a>
+				</div>
+			</div>
+		
+	
+	
+	<div class="nav-item" id="nav-item-toc">
+		
+
+
+<div class="toc-container">
+<i class="far fa-times-circle" id="toc-close" onclick="closeTOC(event);" ontouchstart="closeTOC(event);"></i>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#movidius-神经网络计算棒使用报告"><span class="toc-number">1.</span> <span class="toc-text">Movidius 神经网络计算棒使用报告</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-序言"><span class="toc-number">1.1.</span> <span class="toc-text">0. 序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-movidius-ncs-介绍-安装与文档"><span class="toc-number">1.2.</span> <span class="toc-text">1. Movidius NCS 介绍、安装与文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-movidius-ncs-树莓派加速计算实践"><span class="toc-number">1.3.</span> <span class="toc-text">2. Movidius NCS 树莓派加速计算实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-movidius-ncs-加速原理探究"><span class="toc-number">1.4.</span> <span class="toc-text">3. Movidius NCS 加速原理探究</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-总结"><span class="toc-number">1.5.</span> <span class="toc-text">4. 总结</span></a></li></ol></li></ol>
+</div>
+<div class="toc-button" onclick="toggleTOC(event);" ontouchstart="toggleTOC(event);">
+    <img src="/images/icons/blue-shadow/toc.svg" alt="">
+</div>
+
+	</div>
+	
+	<div class="nav-item" id="nav-item-archive">
+		
+				<div class="nav-icon">
+				
+			<a href="/archives/" title="Archives">
+			<img src="/images/icons/blue-shadow/archive.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-search">
+		
+		<div class="nav-icon">
+		
+			<a href="/search/" title="Search">
+			<img src="/images/icons/blue-shadow/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-more">
+		<div class="nav-icon">
+				<a href="#" onclick="onClickMenuIcon(event);" ontouchstart="onClickMenuIcon(event);">
+				<img src="/images/icons/blue-shadow/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+				<i class="far fa-times-circle" id="nav-more-menu-close" onclick="onClickNavMenuClose(event);" ontouchstart="onClickNavMenuClose(event);"></i>
+		
+			
+			
+				
+			
+				
+			
+				
+			
+		
+			<div class="nav-more-item">
+					<div class="nav-name">
+						<a class="nav-link" href="/">
+							<span>Home</span>
+						</a>
+					</div>
+			</div>
+		
+		
+			
+			
+				
+			
+				
+			
+				
+					
+				
+			
+		
+		
+			
+			
+				
+					
+				
+			
+				
+			
+				
+			
+		
+		
+			
+			
+				
+			
+				
+					
+				
+			
+				
+			
+		
+		
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/TechReport/">
+						<span>Techreport</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/Others/">
+						<span>Others</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/BookReading/">
+						<span>Bookreading</span>
+					</a>
+				</div>
+		</div>
+		
+	</div>
+	</div>
+</nav>
+
+	</div>
+</header>
+
+ 
+
+  
+
+
+
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div style="flex: 1;">
+      <style>
+    body {
+        background-color: white;
+    }
+</style>
+
+
+
+
+
+
+
+
+    
+        
+            
+            
+        
+    
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+
+
+<article class="article" id="/2019/01/12/Movidius神经计算棒使用报告/" data-name="Movidius神经计算棒使用报告" data-version="">
+
+    <!-- Title -->
+    <div class="article-header">
+         
+         <h1 class="article-title">
+            <a href="/2019/01/12/Movidius神经计算棒使用报告/">
+                Movidius神经计算棒使用报告
+            </a>
+        </h1>
+        <!-- TODO: support nested categories,display them nicely -->
+        
+        <ul class="article-categories">
+            
+            
+                <li><a href="/categories/TechReport/" data-no-instant="">
+                    <img src="/images/TechReport.svg" alt="TechReport" onerror="if(this.src != " images="" uncategorized.svg")="" this.src="/images/uncategorized.svg" "="" title="TechReport">
+                </a></li>
+            
+        </ul>
+        
+    </div>
+    
+    <!-- Date and Author -->
+    <div class="article-meta">
+    <ul>
+            <li><i class="fa fa-calendar"></i> Jan 12, 2019</li>
+            
+            <li class="comment-button"><a href="#article-comment"><i class="fa fa-comments"></i> <span id="article-comment-count">0</span></a></li>
+            <li><i class="fa fa-eye"></i> <span id="article-visit-count">0</span></li>
+            <li class="thumb-up-button" id="thumb-up-button"><i class="far fa-thumbs-up fa-lg" id="thumb-up-icon"></i> <span id="article-thumbup-count">0</span></li>
+            
+            <li><i class="fa fa-user"></i> Phelps Ou</li>
+            <li><i class="fas fa-copyright"></i>
+            
+                
+                
+            
+            
+                <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>
+            
+            </li>
+    </ul>
+    
+<div class="tags">
+	
+		
+			<label class="tag-1"><a href="/tags/DeepLearning/">Deeplearning</a></label>
+		
+	
+		
+			<label class="tag-2"><a href="/tags/Movidius/">Movidius</a></label>
+		
+	
+		
+			<label class="tag-3"><a href="/tags/RaspberryPi/">Raspberrypi</a></label>
+		
+	
+		
+			<label class="tag-4"><a href="/tags/计算加速/">计算加速</a></label>
+		
+	
+	</div>
+
+    </div>
+    <div class="article-cards">
+        <!-- Author Card -->
+        <!---
+        <div class='Card-article Card-author'>
+            <div class='card-title'>
+                <h3></h3>
+            </div>
+            <div class='card-content'>
+                    <div class="author-meta">
+                            <div class='author-figure'>
+                                <img src="" alt="">
+                            </div>
+                            <div class='author-name'>
+                                Phelps Ou
+                            </div>
+                        </div>
+                        <div class="author-ai">
+                            <div class='author-intro'>
+                                <!-- TODO: auto generating author description -->
+                                <!-- 
+                            </div>
+                            <div class="author-articles">
+                                <!-- TODO: auto generating author articles -->
+                                <!-- <ul>
+                                    <li>Article 1</li>
+                                    <li>Article 2</li>
+                                    <li>Article 3</li>
+                                    <li>Article 4</li>
+                                    <li>Article 5</li>
+                                    <li>Article 6</li>
+                                </ul>
+                            </div>
+                        </div>
+            </div>
+            
+        </div> -->
+
+        <!-- Visit Card -->
+        <!-- <div class="Card-article Card-visit"> -->
+            <!-- <div class="card-title">
+  <h3>Post Visit</h3>
+</div>
+<div class="card-chart">
+  <div id="chart-post-visit"></div>
+</div> -->
+        <!-- </div> -->
+        
+        <!-- Auto Excerpt Card -->
+        <!-- <div class="Card-article Card-excerpt">
+            <div class="card-title">
+  <h3>Quick Read</h3>
+</div>
+<div class="card-text">
+  <p id="text-post-summary">Movidius 神经网络计算棒使用报告
+
+
+0. 序言
+1. Movidius NCS 介绍、安装与文档
+
+1-1. 硬件架构简介
+1-2. SDK与API安装(RasberryPi Stretch)
+1-3. 文档与社区
+
+
+2. Movidius NCS 树莓派加速计算实践
+
+2-1. 待完成
+2-2. 待完成
+
+
+3. Movidius NCS 加速原理探究
+
+3-1. 待完成
+3-2. 待完成
+
+
+4. 总结
+
+
+0. 序言
+非常感谢杜歆老师为我提供了这次测试Movidius...</p>
+</div>
+        </div> -->
+    </div>
+    
+    <!-- Gallery -->
+    <!-- TODO: add a slider to gallery -->
+    
+
+    <!-- Content -->
+    <!-- TODO: support table of content -->
+    <div class="article-toc" id="article-toc">
+    
+        
+
+
+<div class="toc-container">
+<i class="far fa-times-circle" id="toc-close" onclick="closeTOC(event);" ontouchstart="closeTOC(event);"></i>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#movidius-神经网络计算棒使用报告"><span class="toc-number">1.</span> <span class="toc-text">Movidius 神经网络计算棒使用报告</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-序言"><span class="toc-number">1.1.</span> <span class="toc-text">0. 序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-movidius-ncs-介绍-安装与文档"><span class="toc-number">1.2.</span> <span class="toc-text">1. Movidius NCS 介绍、安装与文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-movidius-ncs-树莓派加速计算实践"><span class="toc-number">1.3.</span> <span class="toc-text">2. Movidius NCS 树莓派加速计算实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-movidius-ncs-加速原理探究"><span class="toc-number">1.4.</span> <span class="toc-text">3. Movidius NCS 加速原理探究</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-总结"><span class="toc-number">1.5.</span> <span class="toc-text">4. 总结</span></a></li></ol></li></ol>
+</div>
+<div class="toc-button" onclick="toggleTOC(event);" ontouchstart="toggleTOC(event);">
+    <img src="/images/icons/blue-shadow/toc.svg" alt="">
+</div>
+
+    </div>
+    <div class="article-content">
+    <h1 id="movidius-神经网络计算棒使用报告">Movidius 神经网络计算棒使用报告</h1>
+<!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
+<ul>
+<li><a href="#0-%E5%BA%8F%E8%A8%80">0. 序言</a></li>
+<li><a href="#1-movidius-ncs-%E4%BB%8B%E7%BB%8D%E5%AE%89%E8%A3%85%E4%B8%8E%E6%96%87%E6%A1%A3">1. Movidius NCS 介绍、安装与文档</a>
+<ul>
+<li><a href="#1-1-%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84%E7%AE%80%E4%BB%8B">1-1. 硬件架构简介</a></li>
+<li><a href="#1-2-sdk%E4%B8%8Eapi%E5%AE%89%E8%A3%85rasberrypi-stretch">1-2. SDK与API安装(RasberryPi Stretch)</a></li>
+<li><a href="#1-3-%E6%96%87%E6%A1%A3%E4%B8%8E%E7%A4%BE%E5%8C%BA">1-3. 文档与社区</a></li>
+</ul>
+</li>
+<li><a href="#2-movidius-ncs-%E6%A0%91%E8%8E%93%E6%B4%BE%E5%8A%A0%E9%80%9F%E8%AE%A1%E7%AE%97%E5%AE%9E%E8%B7%B5">2. Movidius NCS 树莓派加速计算实践</a>
+<ul>
+<li><a href="#2-1-%E5%BE%85%E5%AE%8C%E6%88%90">2-1. 待完成</a></li>
+<li><a href="#2-2-%E5%BE%85%E5%AE%8C%E6%88%90">2-2. 待完成</a></li>
+</ul>
+</li>
+<li><a href="#3-movidius-ncs-%E5%8A%A0%E9%80%9F%E5%8E%9F%E7%90%86%E6%8E%A2%E7%A9%B6">3. Movidius NCS 加速原理探究</a>
+<ul>
+<li><a href="#3-1-%E5%BE%85%E5%AE%8C%E6%88%90">3-1. 待完成</a></li>
+<li><a href="#3-2-%E5%BE%85%E5%AE%8C%E6%88%90">3-2. 待完成</a></li>
+</ul>
+</li>
+<li><a href="#4-%E6%80%BB%E7%BB%93">4. 总结</a></li>
+</ul>
+<!-- /TOC -->
+<h2 id="0-序言">0. 序言</h2>
+<p>非常感谢杜歆老师为我提供了这次测试<code>Movidius NCS</code>的机会，让我能够真正去把这个小玩意儿给用起来（顺便学习了使用<code>markdown</code>写文档的技巧）。本篇报告记录了我在折腾这根计算棒的过程中的思路和想法，主要分为3个部分：</p>
+<ul>
+<li>第一部分是对<code>Movidius NCS</code>特性的整体介绍，包括其发展历程、产品定位、体系架构、功能实现、配套SDK安装等内容；</li>
+<li>第二部分是结合嵌入式课程内容，将NCS应用到树莓派上，部署实时计算机视觉任务；</li>
+<li>第三部分是对NCS加速神经网络计算原理的探究，包括神经网络在NCS中的运算过程、优化方案，以及能否存在结合其他技术进行进一步优化的可能等。</li>
+</ul>
+<p>作为一篇产品报告，测评质量与我个人的能力和见识有很大关系，其中诸多不妥之处还请多多见谅～</p>
+<hr>
+<h2 id="1-movidius-ncs-介绍-安装与文档">1. Movidius NCS 介绍、安装与文档</h2>
+<blockquote>
+<p><code>Intel® Movidius™ Neural Compute Stick</code> 是一个基于USB、运行嵌入式神经网络的开发工具包，由Movidius公司（2016年被Intel收购）于2017年发布。借助该计算棒，用户可以在计算能力较低的设备上运行神经网络和计算机视觉模型。
+<img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz450kp53ij30dw08c43u.jpg" alt="&amp;quot;movidius&amp;quot;的图片搜索结果"></p>
+</blockquote>
+<p>NCS神经网络计算棒的技术参数如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>处理器</td>
+<td>Intel Movidius VPU</td>
+</tr>
+<tr>
+<td>运行功率</td>
+<td>1W</td>
+</tr>
+<tr>
+<td>支持框架</td>
+<td>TensorFlow, Caffe</td>
+</tr>
+<tr>
+<td>连接方式</td>
+<td>USB 3.0 Type-A</td>
+</tr>
+<tr>
+<td>尺寸大小</td>
+<td>72.5mm X 27mm X 14mm</td>
+</tr>
+<tr>
+<td>浮点运算性能</td>
+<td>最高100GFLOPS</td>
+</tr>
+<tr>
+<td>最小系统要求</td>
+<td>运行 Ubuntu 16.04 的x86_64电脑 <br> 运行 Debian Stretch 的树莓派3B <br> 运行 Ubuntu 16.04 的虚拟机实例   <br> 1GB RAM, 4GB 可用硬盘空间</td>
+</tr>
+</tbody>
+</table>
+<p>从技术参数中可以看出，NCS的定位就是为了加速边缘计算而出现的产品，专注于应用于计算机视觉任务神经网络的推理，没有训练功能；而在其刚推出的时候，只支持<code>caffe</code>而不支持<code>tensorflow</code>，也可以看出它就是奔着深度神经网络的工业化应用去的，超低的功耗和优秀的浮点运算性能使它十分适合应用于嵌入式终端中。</p>
+<p>NCS的处理过程大概包括微调、编译和原型设计，如下图所示：</p>
+<ul>
+<li>模型的Traning过程由高性能服务器完成；</li>
+<li>模型的调优、编译和生成计算图等过程由NCSDK提供的tools来完成，一般可以在笔记本电脑上执行；</li>
+<li>最后在应用终端上，主机可以通过SDK的API连接到NCS并把DNN计算任务传给NCS进行计算。</li>
+</ul>
+<p><br><img src="https://movidius.github.io/ncsdk/images/ncs_workflow.jpg"></p>
+<hr>
+<h3 id="1-1-硬件架构简介">1-1. 硬件架构简介</h3>
+<p>作为信电学院电科的学子，了解一下NCS的硬件配置和体系架构还是很有必要的，可以增长见识、将计组课上学到的知识学以致用一下，同时还能加深对NCS的理解。</p>
+<p><br><img src="https://movidius.github.io/ncsdk/images/NCS1_ArchDiagram.jpg"></p>
+<p>上图左方为应用处理器，如<code>Raspberry Pi 3B</code>和<code>UP square borad</code>等；右方即<code>Neural Compute Stick</code>的硬件结构概览。NCS中内置了一颗<strong>Myriad 2 Vision Processor</strong>，Myriad 2拥有12个<code>串流混合架构向量引擎（SHAVE）</code>，该引擎结合了RISC、DSP、GPU以及超长指令字元（VLIW）架构的最佳特色，可以同时处理整数和浮点数；在VPU的旁边有一颗<code>Leon</code>处理器，负责从USB接收计算图文件(graph file)和用于推理的图片集，并解析计算图文件，为SHAVE引擎分配计算任务；计算图通过 <code>NCAPI</code>传输到NCS中，并存储在VPU旁的DRAM上。</p>
+<br>
+<p>NCS的核心是这颗Myriad 2 VPU，它是2014年由Movidius发布的一款SoC，广受好评的大疆精灵4无人机搭载的视觉处理芯片就是它。Myriad 2拥有两个32位RISC处理器，一个用于执行实时操作系统（RTOS），另一个则用于执行实时应用程序；12个基于低延迟内存结构的可编程引擎SHAVE从根本上消除了耗时耗电的数据串流任务，只占用了约500mW晶片功耗。</p>
+<p>此外，Movidius还为经常使用的视觉任务增加了20个硬件加速器——称为<code>原子成像视觉引擎</code>。同时，在这块SoC上有12个移动产业处理器界面（MIPI）通道与其配套的周边界面，包括以太网、USB、IIC、SPI、LCD和UART等，如下图所示。</p>
+<img src="https://archive.eettaiwan.com/www.eettaiwan.com/STATIC/ARTICLE_IMAGES/201409/20140903_Movidius_NP31P4.jpg">
+<blockquote>
+<p>更多详细内容请参阅<code>Myriad 2 VPU</code>的<a href="https://uploads.movidius.com/1463156689-2016-04-29_VPU_ProductBrief.pdf" target="_blank" rel="noopener">官方参数文档</a>或由欧盟<code>Horizon 2020</code>项目组发布的、长达67页的、详细介绍了Myriad-2、Leon和SHAVE的每一个细节的<a href="http://eyesofthings.eu/wp-content/uploads/deliverables/EoT_D2.3.pdf" target="_blank" rel="noopener">这篇文章</a>。</p>
+</blockquote>
+<hr>
+<h3 id="1-2-sdk与api安装-rasberrypi-stretch">1-2. SDK与API安装(RasberryPi Stretch)</h3>
+<h4 id="ncsdk">NCSDK</h4>
+<blockquote>
+<p><strong>软件开发工具包（Software Development Kit, SDK）</strong>：一般是一些被软件工程师用于为特定的软件包、软件框架、硬件平台、操作系统等创建应用软件的开发工具的集合。它或许只是简单的为某个编程语言提供应用程序接口的一些文件，但也可能包括能与某种嵌入式系统通讯的复杂的硬件。一般的工具包括用于调试和其他用途的实用工具，但还经常包括示例代码、支持性的技术注解或者其他的为基本参考资料澄清疑点的支持文档。<em>（维基百科）</em>
+<br><br><strong>NCSDK与NCAPI</strong>：NCSDK是用于网络模型优化、测试和生产计算图的工具包，开发语言可以是<code>C/C++/Python</code>；而NCAPI则提供了一个到神经计算棒的软件接口，用于将graph装载到NCS中，并且在NCS上执行Inference，有<code>C API</code>和<code>Python API</code>两个接口。</p>
+</blockquote>
+<p>NCSDK包括了一系列工具，这些工具会协助你完成利用NCS加速深度神经网络计算应用的开发和部署，一共包括了三个工具包：</p>
+<ul>
+<li><code>mvNCCompiler</code>：将Caffe或Tensorflow的网络配置文件和权值文件转化为Movidius内部编译的格式；</li>
+<li><code>mvNCProfile</code>：在NCS上提供了逐层分析Caffe、Tensorflow网络性能的统计工具；</li>
+<li><code>mvNCCheck</code>：比较NCS和Caffe、Tensorflow在做Inference时的结果。</li>
+</ul>
+<p>如前所述，NCSDK的工作是模型调优、测试和graph生成，这部分工作可以在个人电脑上完成；对于树莓派而言，只需要安装NCAPI就可以通过这个接口利用NCS来加速神经网络Inference了。但为了便于测试性能，我们同时在树莓派上也安装了NCSDK。接下来进入正题，介绍如何在树莓派3B Stretch系统上安装<code>NCSDK</code>、<code>NCAPI</code>、<code>Caffe</code>以及<code>Opencv</code>。</p>
+<h5 id="使用全新烧录的系统来安装">使用全新烧录的系统来安装</h5>
+<p>NCSDK对环境的配置还是比较严格的，它默认会把各类包安装到<code>Python3</code>上，所以它会在安装过程中先卸载原python环境中的opencv，再执行opencv的重新安装。如果对环境管理不是很熟悉的话，建议还是用一个全新烧录的Stretch系统来进行NCSDK的安装，以下内容也将基于一个全新烧录的Stretch系统来进行。</p>
+<p>烧录好系统后，做好必要的配置工作，如在<code>raspi-config</code>中打开vnc、更改分辨率、扩大硬盘空间等，同时修改配置文件以更换为国内源，随后当然是<code>sudo apt update &amp;&amp; sudo apt upgrade -y</code></p>
+<p>下面开始SDK的安装。首先先将相应包从github克隆到本地，然后执行安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/movidius/ncsdk</span><br><span class="line">cd ncsdk</span><br><span class="line">make install</span><br><span class="line">cd ..</span><br></pre></td></tr></table></figure>
+<p><code>make install</code>除了ncsdk的安装外，还会安装caffe和tensorflow，当然也会要求先在当前Python3环境中移除opencv并在稍后安装：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz451rselaj30i5041jrp.jpg" alt="install_1"></p>
+<p>安装过程中会自动检测系统，检测到树莓派的Stretch系统后，会提示tensorflow暂未在树莓派上获得官方支持版本，所以不会安装tensorflow：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fz4520j4agj30du04q74n.jpg" alt="install_2"></p>
+<p>随后，安装进程会把ncsdk和caffe-ssd安装到<code>/opt/movidius/</code>目录下。根据我来回重装折腾观察到的结果来看，有时候caffe是直接安装好并且可以在Python3中import的，但有时候只下载了一个包，需要手动进行make，究竟是何种原因造成的尚未清楚。在make caffe之前，我们先安装opencv。</p>
+<p>在ncsdk安装过程结束时，会询问是否安装opencv，这时可以选择直接安装，也可用稍后在ncsdk目录下找到它的<code>install-opencv.sh</code>脚本来进行安装。这里有一个坑需要注意下，如果直接按照这个脚本进行安装的话，默认会把扩展包<code>opencv-contrib</code>也安装上，那么就会造成一个问题：</p>
+<p>在Python3下同时import cv2和caffe时，会报错(果然又是protobuf的锅)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import cv2</span><br><span class="line">import caffe</span><br><span class="line">[libprotobuf ERROR google/protobuf/descriptor_database.cc:57] File already exists in database: caffe.proto</span><br><span class="line">[libprotobuf FATAL google/protobuf/descriptor.cc:954] CHECK failed: generated_database_-&gt;Add(encoded_file_descriptor, size):</span><br><span class="line">terminate called after throwing an instance of &apos;google::protobuf::FatalException&apos;</span><br><span class="line">what(): CHECK failed: generated_database_-&gt;Add(encoded_file_descriptor, size):</span><br><span class="line">Aborted (core dumped)</span><br></pre></td></tr></table></figure>
+<p>出现这个问题的罪魁祸首是<code>opencv contrib</code>中包含的dnn模块。要解决这个问题有很多方案，包括修改caffe的makefile，修改protobuf的软链接等（这个在x86平台上比较方便，但在树莓派的arm平台上不太好找），最简单的解决方式就是不要安装opencv的contrib扩展包，只需要在<code>install-opencv.sh</code>脚本中注释掉所有跟contrib包有关的行就可以了。注意在cmake -D参数中，有一行是关于从contrib中安装扩展包的，需要删去（图中已经删掉）。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz452jc24fj30lv070q3s.jpg" alt="make_3"></p>
+<p>在这之后重新编译安装opencv，然后就可以前往caffe目录下编译安装caffe了。在树莓派上编译caffe和在ubuntu下差别不大，网上也有很多的教程，主要就是修改makefile和makefile.config两个文件，特别需要注意的是caffe默认关联的是Python2，要把它修改为关联到Python3，注意<code>PYTHON_LIBRARIES = boost_python-py35 python3.5m</code>这一句里必须要加上<code>boost_python-py35</code>，否则make过程中将无法找到boost包。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz452py6f7j30j5027mxa.jpg" alt="make_2"></p>
+<p>到这里caffe就可以正常编译了（至少我可以正常编译了），在Python3中同时import caffe和cv2也成功了，大功告成！</p>
+<p>接下来是<code>NCAPI</code>的安装，这一部分比较简单：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/ncsdk/api/src</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<p>从输出日志可以发现，将ncsdk的lib和include文件分别和系统的python2（/usr/bin/python2）和python3(/usr/bin/python3)做了关联。</p>
+<p>至此，我们完成了<code>NCSDK</code>、<code>NCAPI</code>、<code>Caffe</code>以及<code>Opencv</code>在<code>Raspberry Pi Stretch</code>上的安装，如果要在x86的64位ubuntu系统上安装以上各项也可以参考本节内容，细节上可能会有所差异，但是大体上是一致的。关于SDK和API的使用会放在第二部分介绍，本节就先到此为止啦！</p>
+<hr>
+<h3 id="1-3-文档与社区">1-3. 文档与社区</h3>
+<p>NCS作为新推出的硬件加速器，相应的文档和社区都不算太丰富，这里介绍几个个人觉得比较重要的文档/社区：</p>
+<ul>
+<li>
+<p><a href="https://movidius.github.io/ncsdk/TOC.html" target="_blank" rel="noopener">https://movidius.github.io/ncsdk/TOC.html</a> ：
+NCS的官方文档导航页，包含了NCS介绍、Caffe和Tensorflow的支持、相关软件工具包的安装与例程、SDK和API的介绍等，内容不多，但基本囊括了NCS最主要的各部分介绍。</p>
+</li>
+<li>
+<p><a href="https://movidius.github.io/blog/" target="_blank" rel="noopener">https://movidius.github.io/blog/</a> ：
+NCS的官方博客，里面文章数量很少，但是质量都很不错，可以跟着一步一步地使用SDK工具来实现模型的调整和计算图graph的生成，如何利用NCS搭建一个分类器等等，其中还有两篇是关于在Raspi上使用NCS的，非常值得一看。</p>
+</li>
+<li>
+<p><a href="https://ncsforum.movidius.com/discussions" target="_blank" rel="noopener">https://ncsforum.movidius.com/discussions</a> ：
+官方的用户社区，如果在使用过程中有什么问题，可以到这里与全世界的用户交流。</p>
+</li>
+<li>
+<p>除以上三个官方提供的文档、社区之外，各大技术网站上的文章质量也意外地不错，比如<code>csdn</code>、<code>eeboard爱板网</code>、<code>pyimagesearch社区</code>等，可以作为参考。</p>
+</li>
+</ul>
+<hr>
+<h2 id="2-movidius-ncs-树莓派加速计算实践">2. Movidius NCS 树莓派加速计算实践</h2>
+<hr>
+<h3 id="2-1-待完成">2-1. 待完成</h3>
+<hr>
+<h3 id="2-2-待完成">2-2. 待完成</h3>
+<hr>
+<h2 id="3-movidius-ncs-加速原理探究">3. Movidius NCS 加速原理探究</h2>
+<hr>
+<h3 id="3-1-待完成">3-1. 待完成</h3>
+<hr>
+<h3 id="3-2-待完成">3-2. 待完成</h3>
+<hr>
+<h2 id="4-总结">4. 总结</h2>
+
+    
+    </div>
+    
+    
+        <div class="article-comment" id="article-comment">
+            
+
+<h1>Comment</h1>
+
+  
+    <div id="valine"></div>
+  
+
+
+        </div>
+        
+</article>
+  </div>
+
+  
+
+<footer id="footer">
+    <div class="footer-copyright">
+        <div>
+            <p> Copyright by <a href="">Phelps Ou </a> @ 2019</p>
+            <p>Designed by: <i class="fas fa-paint-brush"></i> <a href="https://moober.cn">Moober</a> and <i class="fas fa-graduation-cap"></i> <a href="https://qutang.github.io">Qu Tang</a> &bull; Theme: <a href="https://qutang.github.io/cutie/">Cutie 2.1.3-Taurus</a> &bull; Powered by <a href="http://hexo.io">Hexo.</a></p>
+        </div>
+    </div>
+    
+    <div class="footer-social">
+        
+            
+                
+                    <div class="footer-social-item"><a href="https://github.com/PhelpsOu" target="_blank"><i class="fab fa-github fa-2x" aria-hidden="true"></i></a></div>
+                
+            
+                
+                    <div class="footer-social-item"><a href="https://www.linkedin.com/in/岳枫-欧-18b728173/" target="_blank"><i class="fab fa-linkedin fa-2x" aria-hidden="true"></i></a></div>
+                
+            
+        
+    </div>
+</footer>
+
+  <br>
+
+  <div id="footer-nav" class='footer-nav'>
+		
+
+
+
+<nav id="nav">
+	
+	
+		
+			
+				
+			
+		
+		
+	
+		
+			
+		
+		
+	
+		
+			
+		
+		
+	
+		
+			
+		
+		
+	
+	
+	<div class="nav-item" id="nav-item-toc">
+		
+
+
+<div class="toc-container">
+<i class="far fa-times-circle" id="toc-close" onclick="closeTOC(event);" ontouchstart="closeTOC(event);"></i>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#movidius-神经网络计算棒使用报告"><span class="toc-number">1.</span> <span class="toc-text">Movidius 神经网络计算棒使用报告</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-序言"><span class="toc-number">1.1.</span> <span class="toc-text">0. 序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-movidius-ncs-介绍-安装与文档"><span class="toc-number">1.2.</span> <span class="toc-text">1. Movidius NCS 介绍、安装与文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-movidius-ncs-树莓派加速计算实践"><span class="toc-number">1.3.</span> <span class="toc-text">2. Movidius NCS 树莓派加速计算实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-movidius-ncs-加速原理探究"><span class="toc-number">1.4.</span> <span class="toc-text">3. Movidius NCS 加速原理探究</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-总结"><span class="toc-number">1.5.</span> <span class="toc-text">4. 总结</span></a></li></ol></li></ol>
+</div>
+<div class="toc-button" onclick="toggleTOC(event);" ontouchstart="toggleTOC(event);">
+    <img src="/images/icons/blue-shadow/toc.svg" alt="">
+</div>
+
+	</div>
+	
+	<div class="nav-item" id="nav-item-archive">
+		
+				<div class="nav-icon">
+				
+			<a href="/archives/" title="Archives">
+			<img src="/images/icons/blue-shadow/archive.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-search">
+		
+		<div class="nav-icon">
+		
+			<a href="/search/" title="Search">
+			<img src="/images/icons/blue-shadow/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-more">
+		<div class="nav-icon">
+				<a href="#" onclick="onClickMenuIcon(event);" ontouchstart="onClickMenuIcon(event);">
+				<img src="/images/icons/blue-shadow/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+				<i class="far fa-times-circle" id="nav-more-menu-close" onclick="onClickNavMenuClose(event);" ontouchstart="onClickNavMenuClose(event);"></i>
+		
+			
+			
+				
+			
+				
+			
+				
+			
+		
+			<div class="nav-more-item">
+					<div class="nav-name">
+						<a class="nav-link" href="/">
+							<span>Home</span>
+						</a>
+					</div>
+			</div>
+		
+		
+			
+			
+				
+			
+				
+			
+				
+					
+				
+			
+		
+		
+			
+			
+				
+					
+				
+			
+				
+			
+				
+			
+		
+		
+			
+			
+				
+			
+				
+					
+				
+			
+				
+			
+		
+		
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/TechReport/">
+						<span>Techreport</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/Others/">
+						<span>Others</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/BookReading/">
+						<span>Bookreading</span>
+					</a>
+				</div>
+		</div>
+		
+	</div>
+	</div>
+</nav>
+
+	</div>
+
+  
+
+
+
+    
+    
+    
+    
+<script>
+    new Valine({
+        el: '#valine',
+        notify:false, 
+        verify:false,
+        appId: 'Azfh2LblxhYq94cFqbHBu3QE-gzGzoHsz',
+        appKey: 'cvKyA4yKb2h148Fs2OGsvBME',
+        placeholder: '',
+        path:window.location.pathname, 
+        avatar:'retro',
+        lang: 'en'
+    });
+</script>
+
+
+
+
+
+
+
+
+    <script src="/js/lightgallery.min.js"></script>
+<script src="/js/lg-zoom.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#lightgallery").lightGallery(); 
+        $(".article-content img").each(function(){
+            console.log($(this).attr('src'))
+            $(this).attr('data-src', $(this).attr('src')).lightGallery({
+                selector: 'this'
+            })
+        });
+    });
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+
+  
+  // update cookie if this page is opened (directly)
+  loadjs(['/libs/jshashes/hashes.min.js', '/libs/js-cookie/src/js.cookie.js', '/js/post.v2.js'], 'post-version');
+  loadjs.ready('post-version', function(){
+    
+    new Postv2('hashit_ea720ca15e0d09d58c75d2e1f3ed4c1b9ed0c4897b0d81547248e206a7fe3276').update('hashit_c7531088bebec1a5336ce2b79cad8f8239ae2c26b831e5e6f866ac7902ebc8c8', function(){});
+  });
+  
+</script>
+
+
+    
+<script type="text/javascript">
+  
+  // update cookie if this page is opened (directly)
+  function getIP(json) {
+  loadjs(['/libs/jshashes/hashes.min.js', '/libs/js-cookie/src/js.cookie.js', '/js/leancloud.js'], 'post-visit-comment-count');
+  loadjs.ready('post-visit-comment-count', function(){
+    
+    
+    LeanCloud.init('Azfh2LblxhYq94cFqbHBu3QE-gzGzoHsz', 'cvKyA4yKb2h148Fs2OGsvBME');
+    var leanCloud = LeanCloud.getInstance();
+    leanCloud.fetchIsThumbUp('/2019/01/12/Movidius神经计算棒使用报告/', json.ip);
+    document.getElementById('thumb-up-button').addEventListener('click', function(e){
+      leanCloud.isThumbUp('/2019/01/12/Movidius神经计算棒使用报告/', function(isThumbUp){
+        console.log('is thumb up:' + isThumbUp);
+        if(isThumbUp){
+          leanCloud.removeThumbUpRecord('/2019/01/12/Movidius神经计算棒使用报告/', json.ip);
+          document.getElementById('thumb-up-icon').className = "far fa-thumbs-up fa-lg";
+          
+        }else{
+          leanCloud.addThumbUpRecord('/2019/01/12/Movidius神经计算棒使用报告/', json.ip);
+          document.getElementById('thumb-up-icon').className = "fas fa-thumbs-up fa-lg";
+        }
+        leanCloud.getThumbUpCount('/2019/01/12/Movidius神经计算棒使用报告/', function(count){
+            console.log('thumb up count: ' + count)
+            var el = document.getElementById('article-thumbup-count');
+            if(el) el.innerHTML = count;
+        });
+      });
+    });
+    leanCloud.addVisitRecord('/2019/01/12/Movidius神经计算棒使用报告/', json.ip);
+    leanCloud.fetchCommentCount('/2019/01/12/Movidius神经计算棒使用报告/');
+    leanCloud.fetchVisitCount('/2019/01/12/Movidius神经计算棒使用报告/');
+    leanCloud.fetchThumbUpCount('/2019/01/12/Movidius神经计算棒使用报告/');
+    leanCloud.getCommentCount('/2019/01/12/Movidius神经计算棒使用报告/', function(count){
+        var el = document.querySelector('#article-comment-count');
+        if(el) el.innerHTML = count;
+    });
+    leanCloud.getVisitCount('/2019/01/12/Movidius神经计算棒使用报告/', function(count){
+        var el = document.querySelector('#article-visit-count');
+        if(el) el.innerHTML = count;
+    });
+    leanCloud.getThumbUpCount('/2019/01/12/Movidius神经计算棒使用报告/', function(count){
+        var el = document.getElementById('article-thumbup-count');
+        if(el) el.innerHTML = count;
+    });
+    leanCloud.isThumbUp('/2019/01/12/Movidius神经计算棒使用报告/', function(isThumbUp){
+        console.log('init thumb up:' + isThumbUp);
+        if(isThumbUp){
+          document.getElementById('thumb-up-icon').className = "fas fa-thumbs-up fa-lg";
+        }else{
+          document.getElementById('thumb-up-icon').className = "far fa-thumbs-up fa-lg";
+        }
+    });
+  });
+  }
+  
+</script>
+
+<script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+
+
+
+<!-- <script src="/js/post.js"></script> -->
+
+<script src="/js/headroom.min.js"></script>
+
+<script data-no-instant="" type="text/javascript">
+
+initHeadroom();
+
+changeLayoutOnTouchScreen();
+
+// 
+// var post = new Post('Azfh2LblxhYq94cFqbHBu3QE-gzGzoHsz', 'cvKyA4yKb2h148Fs2OGsvBME');
+// post.getCommentCount(window.location.pathname, function(count){
+//     $('#article-comment-count').text(count);
+// });
+// post.addVisitRecord(window.location.pathname, userip);
+// post.getVisitCount(window.location.pathname, function(count){
+//     $('#article-visit-count').text(count);
+// });
+
+// 
+</script>
+
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

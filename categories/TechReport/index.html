@@ -303,6 +303,74 @@
 
 
 
+<div class="Card-archive" id="hashit_ea720ca15e0d09d58c75d2e1f3ed4c1b9ed0c4897b0d81547248e206a7fe3276" data-name="Movidius神经计算棒使用报告" data-version="">
+	<mark class="Card-badge"></mark>
+	<div class="Card-body">
+		<h3 class="Card-title">
+			
+				<a href="/2019/01/12/Movidius神经计算棒使用报告/">
+			
+			Movidius神经计算棒使用报告</a>
+		</h3>
+		<div class="Card-meta">
+			<div class="Card-tags">
+<div class="tags">
+	
+		
+			
+				<label class="tag-1"><a href="/tags/DeepLearning/">Deeplearning</a></label>
+			
+		
+	
+		
+			
+				<label class="tag-2"><a href="/tags/Movidius/">Movidius</a></label>
+			
+		
+	
+		
+			
+				<label class="tag-3"><a href="/tags/RaspberryPi/">Raspberrypi</a></label>
+			
+		
+	
+		
+			
+				<label class="tag-4"><a href="/tags/计算加速/">计算加速</a></label>
+			
+		
+	
+	</div>
+</div>
+			<ul>
+					<li>
+						<a href="/archives/">
+							<i class="fa fa-calendar"></i> Jan 12, 2019
+						</a>
+					</li>
+					
+					
+					<li>
+						<a href="/2019/01/12/Movidius神经计算棒使用报告/#article-comment">
+							<i class="fa fa-comments"></i> <span class="card-comment-count">0</span>
+						</a>
+					</li>
+					<li>
+						<i class="fa fa-eye"></i> <span class="card-visit-count">0</span>
+					</li>
+					
+					
+			</ul>
+		</div>
+	</div>
+</div>
+
+	
+		
+
+
+
+
 <div class="Card-archive" id="hashit_60703579258c600fca1c6885941eda37fbf3b90f57334aa18d0d6b107caea6ce" data-name="Hello World" data-version="">
 	<mark class="Card-badge"></mark>
 	<div class="Card-body">
@@ -572,6 +640,20 @@
 
 
 
+    <script src="/js/lightgallery.min.js"></script>
+<script src="/js/lg-zoom.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#lightgallery").lightGallery(); 
+        $(".article-content img").each(function(){
+            console.log($(this).attr('src'))
+            $(this).attr('data-src', $(this).attr('src')).lightGallery({
+                selector: 'this'
+            })
+        });
+    });
+</script>
+
 
 
 
@@ -584,6 +666,14 @@
     loadjs.ready('post-version', {
       success: function(){
         console.log('ready to run badge script')
+        
+          
+          
+          
+            var postBadge = document.querySelector('#hashit_ea720ca15e0d09d58c75d2e1f3ed4c1b9ed0c4897b0d81547248e206a7fe3276 mark.Card-badge');
+            $(postBadge).fadeOut();
+            
+          
         
           
           
@@ -608,6 +698,36 @@
       success: function(){
           LeanCloud.init('Azfh2LblxhYq94cFqbHBu3QE-gzGzoHsz', 'cvKyA4yKb2h148Fs2OGsvBME');
           var leanCloud = LeanCloud.getInstance();
+        
+          
+          
+          // start caching post visit and comment counts
+          leanCloud.fetchIsThumbUp('/2019/01/12/Movidius神经计算棒使用报告/', json.ip);
+          leanCloud.fetchCommentCount('/2019/01/12/Movidius神经计算棒使用报告/');
+          leanCloud.fetchVisitCount('/2019/01/12/Movidius神经计算棒使用报告/');
+          leanCloud.fetchThumbUpCount('/2019/01/12/Movidius神经计算棒使用报告/');
+          leanCloud.getCommentCount('/2019/01/12/Movidius神经计算棒使用报告/', function(count){
+              var el = document.querySelector('#hashit_ea720ca15e0d09d58c75d2e1f3ed4c1b9ed0c4897b0d81547248e206a7fe3276 .card-comment-count');
+              if(el) el.innerHTML = count;
+          });
+          leanCloud.getVisitCount('/2019/01/12/Movidius神经计算棒使用报告/', function(count){
+              var el = document.querySelector('#hashit_ea720ca15e0d09d58c75d2e1f3ed4c1b9ed0c4897b0d81547248e206a7fe3276 .card-visit-count');
+              if(el) el.innerHTML = count;
+          });
+          leanCloud.getThumbUpCount('/2019/01/12/Movidius神经计算棒使用报告/', function(count){
+              var el = document.querySelector('#hashit_ea720ca15e0d09d58c75d2e1f3ed4c1b9ed0c4897b0d81547248e206a7fe3276 .card-thumbup-count');
+              if(el) el.innerHTML = count;
+          });
+          leanCloud.isThumbUp('/2019/01/12/Movidius神经计算棒使用报告/', function(isThumbUp){
+              var el = document.querySelector('#hashit_ea720ca15e0d09d58c75d2e1f3ed4c1b9ed0c4897b0d81547248e206a7fe3276 .card-thumbup-container i');
+              if(el){
+                if(isThumbUp){
+                  el.className = 'fas fa-thumbs-up';
+                }else{
+                  el.className = 'far fa-thumbs-up';
+                }
+              }
+          });
         
           
           
