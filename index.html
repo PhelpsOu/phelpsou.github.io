@@ -83,7 +83,7 @@
 		
 		<div class="header-logo">
 			<a href="/">
-				<img src="/images/theme-icon.svg">
+				<img src="/images/Babe.jpeg">
 			</a>
 		</div>
 		<div class="header-text">
@@ -104,13 +104,43 @@
 <nav id="nav">
 	
 	
+		
+			
+		
+		
+			<div class="nav-item">
+				
+					<div class="nav-name">
+				
+					<a class="nav-link" href="/resume/">
+						<span>Resume </span>
+					</a>
+				</div>
+			</div>
+		
+	
+		
+			
+		
+		
+			<div class="nav-item">
+				
+					<div class="nav-name">
+				
+					<a class="nav-link" href="/aaa/">
+						<span>Menu item </span>
+					</a>
+				</div>
+			</div>
+		
+	
 	
 	<div class="nav-item" id="nav-item-archive">
 		
 				<div class="nav-icon">
 				
 			<a href="/archives/" title="Archives">
-			<img src="/images/icons/blue-shadow/archive.svg" alt="">
+			<img src="/images/icons/blue-line/archive.svg" alt="">
 			</a>
 		</div>
 	</div>
@@ -119,18 +149,42 @@
 		<div class="nav-icon">
 		
 			<a href="/search/" title="Search">
-			<img src="/images/icons/blue-shadow/search.svg" alt="">
+			<img src="/images/icons/blue-line/search.svg" alt="">
 			</a>
 		</div>
 	</div>
 	<div class="nav-item" id="nav-item-more">
 		<div class="nav-icon">
 				<a href="#" onclick="onClickMenuIcon(event);" ontouchstart="onClickMenuIcon(event);">
-				<img src="/images/icons/blue-shadow/menu.svg" alt="">
+				<img src="/images/icons/blue-line/menu.svg" alt="">
 				</a>
 		</div>
 		<div class="nav-more-menu">
 				<i class="far fa-times-circle" id="nav-more-menu-close" onclick="onClickNavMenuClose(event);" ontouchstart="onClickNavMenuClose(event);"></i>
+		
+			
+			
+		
+			<div class="nav-more-item">
+					<div class="nav-name">
+						<a class="nav-link" href="/resume/">
+							<span>Resume</span>
+						</a>
+					</div>
+			</div>
+		
+		
+			
+			
+		
+			<div class="nav-more-item">
+					<div class="nav-name">
+						<a class="nav-link" href="/aaa/">
+							<span>Menu item</span>
+						</a>
+					</div>
+			</div>
+		
 		
 		
 	</div>
@@ -145,6 +199,32 @@
   
 
 
+
+<script type="text/javascript" src="/libs/noty/lib/noty.min.js"></script>
+<script>
+    loadjs(['/libs/noty/lib/noty.min.js', '/libs/jshashes/hashes.min.js', '/libs/js-cookie/src/js.cookie.js', '/js/announcement.js'], 'announcement');
+    loadjs.ready('announcement', {
+      success: function(){
+        new Announcement('This is a sample site announcement.').show();
+      },
+      error: function(err){
+        console.log(err);
+      }
+    });
+</script>
+
+<style>
+  #announcement{
+    width: 40vw;
+    padding: 0.1em;
+  }
+  #announcement a:link{
+    color: white
+  }
+  #announcement a:visited{
+    color: white
+  }
+</style>
 
 
   <!-- Primary Page Layout
@@ -215,18 +295,6 @@
 			
 			<div class="Card-meta">
 				
-				<div class="Card-tags">
-<div class="tags">
-	
-		
-			
-				<label class="tag-1"><a href="/tags/杂谈/">杂谈</a></label>
-			
-		
-	
-	</div>
-</div>
-				
 				<ul>
 						<li class="card-calendar">
 							<a href="/archives/">
@@ -234,6 +302,14 @@
 							</a>
 						</li>
 						
+						
+						<li class="card-comment">
+							<a href="/2019/01/12/test/#article-comment">
+								<i class="fa fa-comments"></i> <span class="card-comment-count">0</span>
+							</a>
+						</li>
+						<li class="card-visitor"><i class="fa fa-eye"></i> <span class="card-visit-count">0</span></li>
+						<li class="card-thumbup-container"><i class="far fa-thumbs-up"></i> <span class="card-thumbup-count">0</span></li>
 						
 						
 				</ul>
@@ -296,8 +372,6 @@
 			
 			<div class="Card-meta">
 				
-				<div class="Card-tags"></div>
-				
 				<ul>
 						<li class="card-calendar">
 							<a href="/archives/">
@@ -305,6 +379,14 @@
 							</a>
 						</li>
 						
+						
+						<li class="card-comment">
+							<a href="/2019/01/12/hello-world/#article-comment">
+								<i class="fa fa-comments"></i> <span class="card-comment-count">0</span>
+							</a>
+						</li>
+						<li class="card-visitor"><i class="fa fa-eye"></i> <span class="card-visit-count">0</span></li>
+						<li class="card-thumbup-container"><i class="far fa-thumbs-up"></i> <span class="card-thumbup-count">0</span></li>
 						
 						
 				</ul>
@@ -350,6 +432,16 @@
     
     <div class="footer-social">
         
+            
+                
+                    <div class="footer-social-item"><a href="https://github.com/PhelpsOu" target="_blank"><i class="fab fa-github fa-2x" aria-hidden="true"></i></a></div>
+                
+            
+                
+                    <div class="footer-social-item"><a href="https://www.linkedin.com/in/岳枫-欧-18b728173/" target="_blank"><i class="fab fa-linkedin fa-2x" aria-hidden="true"></i></a></div>
+                
+            
+        
     </div>
 </footer>
 
@@ -363,13 +455,25 @@
 <nav id="nav">
 	
 	
+		
+			
+				
+			
+		
+		
+	
+		
+			
+		
+		
+	
 	
 	<div class="nav-item" id="nav-item-archive">
 		
 				<div class="nav-icon">
 				
 			<a href="/archives/" title="Archives">
-			<img src="/images/icons/blue-shadow/archive.svg" alt="">
+			<img src="/images/icons/blue-line/archive.svg" alt="">
 			</a>
 		</div>
 	</div>
@@ -378,18 +482,42 @@
 		<div class="nav-icon">
 		
 			<a href="/search/" title="Search">
-			<img src="/images/icons/blue-shadow/search.svg" alt="">
+			<img src="/images/icons/blue-line/search.svg" alt="">
 			</a>
 		</div>
 	</div>
 	<div class="nav-item" id="nav-item-more">
 		<div class="nav-icon">
 				<a href="#" onclick="onClickMenuIcon(event);" ontouchstart="onClickMenuIcon(event);">
-				<img src="/images/icons/blue-shadow/menu.svg" alt="">
+				<img src="/images/icons/blue-line/menu.svg" alt="">
 				</a>
 		</div>
 		<div class="nav-more-menu">
 				<i class="far fa-times-circle" id="nav-more-menu-close" onclick="onClickNavMenuClose(event);" ontouchstart="onClickNavMenuClose(event);"></i>
+		
+			
+			
+		
+			<div class="nav-more-item">
+					<div class="nav-name">
+						<a class="nav-link" href="/resume/">
+							<span>Resume</span>
+						</a>
+					</div>
+			</div>
+		
+		
+			
+			
+		
+			<div class="nav-more-item">
+					<div class="nav-name">
+						<a class="nav-link" href="/aaa/">
+							<span>Menu item</span>
+						</a>
+					</div>
+			</div>
+		
 		
 		
 	</div>
@@ -403,6 +531,23 @@
 
 
     
+    
+    
+    
+<script>
+    new Valine({
+        el: '#valine',
+        notify:false, 
+        verify:false,
+        appId: 'Azfh2LblxhYq94cFqbHBu3QE-gzGzoHsz',
+        appKey: 'cvKyA4yKb2h148Fs2OGsvBME',
+        placeholder: '',
+        path:window.location.pathname, 
+        avatar:'retro',
+        lang: 'en'
+    });
+</script>
+
 
 
 
@@ -459,6 +604,85 @@
 </script>
 
 
+    
+<script type="text/javascript">
+  
+    function getIP(json) {
+      loadjs(['/libs/jshashes/hashes.min.js', '/libs/js-cookie/src/js.cookie.js', '/js/leancloud.js'], 'post-visit-comment-count');
+    loadjs.ready('post-visit-comment-count', {
+      success: function(){
+          LeanCloud.init('Azfh2LblxhYq94cFqbHBu3QE-gzGzoHsz', 'cvKyA4yKb2h148Fs2OGsvBME');
+          var leanCloud = LeanCloud.getInstance();
+        
+          
+          
+          // start caching post visit and comment counts
+          leanCloud.fetchIsThumbUp('/2019/01/12/test/', json.ip);
+          leanCloud.fetchCommentCount('/2019/01/12/test/');
+          leanCloud.fetchVisitCount('/2019/01/12/test/');
+          leanCloud.fetchThumbUpCount('/2019/01/12/test/');
+          leanCloud.getCommentCount('/2019/01/12/test/', function(count){
+              var el = document.querySelector('#hashit_72d3078e0104bb40c444536fca75dd8c9ce844fc012acca5bf245ca5a8765c02 .card-comment-count');
+              if(el) el.innerHTML = count;
+          });
+          leanCloud.getVisitCount('/2019/01/12/test/', function(count){
+              var el = document.querySelector('#hashit_72d3078e0104bb40c444536fca75dd8c9ce844fc012acca5bf245ca5a8765c02 .card-visit-count');
+              if(el) el.innerHTML = count;
+          });
+          leanCloud.getThumbUpCount('/2019/01/12/test/', function(count){
+              var el = document.querySelector('#hashit_72d3078e0104bb40c444536fca75dd8c9ce844fc012acca5bf245ca5a8765c02 .card-thumbup-count');
+              if(el) el.innerHTML = count;
+          });
+          leanCloud.isThumbUp('/2019/01/12/test/', function(isThumbUp){
+              var el = document.querySelector('#hashit_72d3078e0104bb40c444536fca75dd8c9ce844fc012acca5bf245ca5a8765c02 .card-thumbup-container i');
+              if(el){
+                if(isThumbUp){
+                  el.className = 'fas fa-thumbs-up';
+                }else{
+                  el.className = 'far fa-thumbs-up';
+                }
+              }
+          });
+        
+          
+          
+          // start caching post visit and comment counts
+          leanCloud.fetchIsThumbUp('/2019/01/12/hello-world/', json.ip);
+          leanCloud.fetchCommentCount('/2019/01/12/hello-world/');
+          leanCloud.fetchVisitCount('/2019/01/12/hello-world/');
+          leanCloud.fetchThumbUpCount('/2019/01/12/hello-world/');
+          leanCloud.getCommentCount('/2019/01/12/hello-world/', function(count){
+              var el = document.querySelector('#hashit_60703579258c600fca1c6885941eda37fbf3b90f57334aa18d0d6b107caea6ce .card-comment-count');
+              if(el) el.innerHTML = count;
+          });
+          leanCloud.getVisitCount('/2019/01/12/hello-world/', function(count){
+              var el = document.querySelector('#hashit_60703579258c600fca1c6885941eda37fbf3b90f57334aa18d0d6b107caea6ce .card-visit-count');
+              if(el) el.innerHTML = count;
+          });
+          leanCloud.getThumbUpCount('/2019/01/12/hello-world/', function(count){
+              var el = document.querySelector('#hashit_60703579258c600fca1c6885941eda37fbf3b90f57334aa18d0d6b107caea6ce .card-thumbup-count');
+              if(el) el.innerHTML = count;
+          });
+          leanCloud.isThumbUp('/2019/01/12/hello-world/', function(isThumbUp){
+              var el = document.querySelector('#hashit_60703579258c600fca1c6885941eda37fbf3b90f57334aa18d0d6b107caea6ce .card-thumbup-container i');
+              if(el){
+                if(isThumbUp){
+                  el.className = 'fas fa-thumbs-up';
+                }else{
+                  el.className = 'far fa-thumbs-up';
+                }
+              }
+          });
+        
+      }
+    })
+    }
+  
+</script>
+
+<script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+
+
 
 <!-- <script src="/js/post.js"></script> -->
 
@@ -471,7 +695,7 @@ initHeadroom();
 changeLayoutOnTouchScreen();
 
 // 
-// var post = new Post('', '');
+// var post = new Post('Azfh2LblxhYq94cFqbHBu3QE-gzGzoHsz', 'cvKyA4yKb2h148Fs2OGsvBME');
 // console.log(post);
 // $('.Card').each(function(){
 //     var post_url = $(this).attr('id');
