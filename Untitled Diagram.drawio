@@ -1,14 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2021-05-20T02:17:32.314Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.3 Safari/605.1.15" etag="SnpdDxhmf9fiT0tcsx6D" version="14.6.13" type="github">
+<mxfile host="app.diagrams.net" modified="2021-05-20T02:25:13.612Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.3 Safari/605.1.15" etag="VjCORBLvKEC-dl2JvZMF" version="14.6.13" type="github">
   <diagram name="Page-1" id="929967ad-93f9-6ef4-fab6-5d389245f69c">
-    <mxGraphModel dx="1892" dy="1450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1351" dy="1036" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" style=";html=1;" />
         <mxCell id="1" style=";html=1;" parent="0" />
-        <mxCell id="yEWoqUiM4OorlA2c4pws-1" value="Symbol + outputs: vector&lt;comgraph::NodeEdge&gt;&#xa; - params_: unordered_map&lt;string, string&gt; &#xa; - input_symbols_: vector&lt;SymbolHandle&gt; &#xa; - input_ndarrays_: vector&lt;NDArray&gt; &#xa; - input_keys_: vector&lt;string&gt; &#xa; - blob_ptr_: shared_ptr&lt;SymBlob&gt;&#xa; + Symbol(operator_name: const string)&#xa; + Variable(name: const string): Symbol&#xa; + CreateOpFunctor(op: const comgraph::Op*): Symbol&#xa; + ConstructSymbol(name: const string): Symbol&#xa;&#xa; + SetParam(name: string, value: T): Symbol&amp;&#xa; + SetInput(name: string, sym: Symbol): Symbol&amp;&#xa; + Compose()&#xa;&#xa; + InferShape(&#xa;      arg_shapes: map&lt;string, vector&lt;size_t&gt;, &#xa;      in_shape: vector&lt;std::vector&lt;size_t&gt;&gt;*,&#xa;&#xa;      aux_shape:vector &lt;std::vector&lt;size_t&gt;&gt;*,&#xa;      out_shape: vector&lt;std::vector&lt;size_t&gt;&gt;*&#xa;   )&#xa; + InferArgsMap(&#xa;      ctx: Context, &#xa;      args_map: map&lt;string, NDArray&gt;*,&#xa;      known_args: const map&lt;string, NDArray&gt;&amp;&#xa;   )&#xa; + SimpleBind(&#xa;     ctx: Context, &#xa;&#xa;     args_map: map&lt;string, NDArray&gt;*,&#xa;     grad_req_type: map&lt;string, exec::OpReqType&gt;&#xa;   )&#xa;&#xa;&#xa; + ListAttrs(option: ListAttrOption): unordered_map&lt;string, string&gt;&#xa; + ListArguments(): vector&lt;string&gt;&#xa; + ListInputs(option: ListAttrOption): comgraph::NodePtr&#xa;&#xa; + Save(file_name: string)&#xa; + Load(file_name: string): Symbol" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;" vertex="1" parent="1">
-          <mxGeometry x="380" y="310" width="580" height="710" as="geometry" />
-        </mxCell>
         <mxCell id="yEWoqUiM4OorlA2c4pws-3" value="SymBlob" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontFamily=Courier New;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="1020" y="600" width="320" height="130" as="geometry" />
+          <mxGeometry x="950" y="800" width="320" height="130" as="geometry" />
         </mxCell>
         <mxCell id="yEWoqUiM4OorlA2c4pws-4" value="+ SymbolHandle handle_" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=Courier New;fontSize=14;" vertex="1" parent="yEWoqUiM4OorlA2c4pws-3">
           <mxGeometry y="26" width="320" height="26" as="geometry" />
@@ -19,11 +16,23 @@
         <mxCell id="yEWoqUiM4OorlA2c4pws-7" value="+ SymBlob(handle: SymbolHandle)&#xa;- SymBlob(obj: SymBlob&amp;)&#xa;- operator=(obj: SymBlob&amp;): SymBlob" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=Courier New;fontSize=14;" vertex="1" parent="yEWoqUiM4OorlA2c4pws-3">
           <mxGeometry y="60" width="320" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="yEWoqUiM4OorlA2c4pws-9" value="1" style="endArrow=open;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;fontFamily=Courier New;fontSize=14;" edge="1" parent="1" source="yEWoqUiM4OorlA2c4pws-1" target="yEWoqUiM4OorlA2c4pws-3">
+        <mxCell id="yEWoqUiM4OorlA2c4pws-9" value="" style="endArrow=open;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;fontFamily=Courier New;fontSize=14;" edge="1" parent="1" source="yEWoqUiM4OorlA2c4pws-16" target="yEWoqUiM4OorlA2c4pws-3">
           <mxGeometry x="-1" y="3" relative="1" as="geometry">
-            <mxPoint x="570" y="660" as="sourcePoint" />
+            <mxPoint x="960" y="665" as="sourcePoint" />
             <mxPoint x="730" y="660" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="yEWoqUiM4OorlA2c4pws-13" value="Symbol" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontFamily=Courier New;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="320" y="460" width="580" height="660" as="geometry" />
+        </mxCell>
+        <mxCell id="yEWoqUiM4OorlA2c4pws-14" value="+ outputs: vector&lt;comgraph::NodeEdge&gt;&#xa;- params_: unordered_map&lt;string, string&gt; &#xa;- input_symbols_: vector&lt;SymbolHandle&gt; &#xa;- input_ndarrays_: vector&lt;NDArray&gt; &#xa;- input_keys_: vector&lt;string&gt; &#xa;- blob_ptr_: shared_ptr&lt;SymBlob&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=Courier New;fontSize=14;" vertex="1" parent="yEWoqUiM4OorlA2c4pws-13">
+          <mxGeometry y="26" width="580" height="114" as="geometry" />
+        </mxCell>
+        <mxCell id="yEWoqUiM4OorlA2c4pws-15" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontFamily=Courier New;fontSize=14;" vertex="1" parent="yEWoqUiM4OorlA2c4pws-13">
+          <mxGeometry y="140" width="580" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="yEWoqUiM4OorlA2c4pws-16" value="+ Symbol(operator_name: const string)&#xa;+ Variable(name: const string): Symbol&#xa;+ CreateOpFunctor(op: const comgraph::Op*): Symbol&#xa;+ ConstructSymbol(name: const string): Symbol&#xa;+ SetParam(name: string, value: T): Symbol&amp;&#xa;+ SetInput(name: string, sym: Symbol): Symbol&amp;&#xa;+ Compose()&#xa;+ InferShape(&#xa;      arg_shapes: map&lt;string, vector&lt;size_t&gt;, &#xa;      in_shape: vector&lt;std::vector&lt;size_t&gt;&gt;*,&#xa;&#xa;      aux_shape:vector &lt;std::vector&lt;size_t&gt;&gt;*,&#xa;      out_shape: vector&lt;std::vector&lt;size_t&gt;&gt;*&#xa;   )&#xa;+ InferArgsMap(&#xa;      ctx: Context, &#xa;      args_map: map&lt;string, NDArray&gt;*,&#xa;      known_args: const map&lt;string, NDArray&gt;&amp;&#xa;   )&#xa;+ SimpleBind(     &#xa;     ctx: Context, &#xa;     args_map: map&lt;string, NDArray&gt;*,&#xa;     grad_req_type: map&lt;string, exec::OpReqType&gt;&#xa;   )&#xa;+ ListAttrs(option: ListAttrOption): unordered_map&lt;string, string&gt;&#xa;+ ListArguments(): vector&lt;string&gt;&#xa;+ ListInputs(option: ListAttrOption): comgraph::NodePtr&#xa;+ Save(file_name: string)&#xa;+ Load(file_name: string): Symbol" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=Courier New;fontSize=14;" vertex="1" parent="yEWoqUiM4OorlA2c4pws-13">
+          <mxGeometry y="148" width="580" height="512" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
